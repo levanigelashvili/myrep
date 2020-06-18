@@ -54,7 +54,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     Login
                                 </button>
-                                <a href = "/register" >Register</a>
+                                
 
 
                             </div>

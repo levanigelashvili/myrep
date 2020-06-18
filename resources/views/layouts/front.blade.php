@@ -32,7 +32,9 @@
 	</div>
 
 	<div class = "col-3 text-center">
-      <button class="cart_btn" type="submit"><i class="fas fa-shopping-cart"></i><span>შესვლა</span></button>
+
+      <button class="cart_btn" type="submit"><a href ="{{route('user.cart')}}"><i class="fas fa-shopping-cart"></i></a><a href ="{{route('user.login')}}">{!! Auth::user() ? Auth::user()->email : '<span>შესვლა</span>'!!}</a></button>
+
 
   </div>
  </div>
@@ -41,22 +43,29 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-9 col-sm-10 p-0">
-          <nav>
-            <div class="toggle">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <ul id="menu_list" class="menu_list p-0">
-              <li class=" @if($menu == 1) active @endif"><a href="{{ route('index') }}">მთავარი</a></li>
-              <li class=" @if($menu == 2) active @endif"><a href="{{ route('news.index') }}">ტრანსპორტი</a></li>
-              <li class=" @if($menu == 3) active @endif"><a href="{{ route('gallery.index') }}">ივენთი</a></li>
-							<li class=" @if($menu == 3) active @endif"><a href="{{ route('gallery.index') }}">კონცერტი</a></li>
-              <li class=" @if($menu == 4) active @endif"><a href="{{ route('contributors.index') }}">სპორტი</a></li>
-              <li class=" @if($menu == 5) active @endif"><a href="{{ route('about.index') }}">სხვა</a></li>
-            </ul>
-          </nav>
+				<nav>
+
+					<div class="toggle">
+		              <span></span>
+		              <span></span>
+		              <span></span>
+		              <span></span>
+		         </div>
+
+
+
+			<ul id="" class="menu_list p-0">
+				<li class=" @if($menu == 1) active @endif"><a href="{{ route('index') }}">მთავარი</a></li>
+				<li class=" @if($menu == 2) active @endif"><a href="{{ route('news.index') }}">ტრანსპორტი</a></li>
+				<li class=" @if($menu == 3) active @endif"><a href="{{ route('donation.index') }}">ივენთი</a></li>
+				<li class=" @if($menu == 4) active @endif"><a href="{{ route('gallery.index') }}">კონცერტი</a></li>
+				<li class=" @if($menu == 5) active @endif"><a href="{{ route('contributors.index') }}">სპორტი</a></li>
+				<li class=" @if($menu == 6) active @endif"><a href="{{ route('about.index') }}">სხვა</a></li>
+	    </ul>
+</div>
+</nav>
+
+
         </div>
 
       <!--  enis archeva
@@ -131,18 +140,6 @@
 </div>
 </footer>
 
-<div class="sound">
-  <div class="sound--icon fa fa-volume-off"></div>
-  <div>
-    <div class="sound--wave sound--wave_one"></div>
-    <div class="sound--wave sound--wave_two"></div>
-  </div>
-</div>
-
-<audio id="backSound" loop>
-  <source src="{{ asset('front/assets/css/One_More_Light_Linkin_Park.mp3') }}">
-</audio>
-
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -156,17 +153,6 @@
 <link rel="stylesheet"  href="{{ asset('front/assets/css/video_popup.css') }}">
 
 @yield('script')
-<script>
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("menu_list").style.visibility = "visible";
-  } else {
-    document.getElementById("menu_list").style.visibility = "hidden";
-  }
-  prevScrollpos = currentScrollPos;
-}
-</script>
+
 </body>
 </html>

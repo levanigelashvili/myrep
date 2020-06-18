@@ -23,7 +23,7 @@ class GalleryController extends Controller{
         $data['galleries'] = $this->galleries->orderBy('id','desc')->paginate(12);
 
         //dd(count($data['galleries'][3]->images));
-        $data['menu']= 3;
+        $data['menu']= 4;
 
 
         return view('front/gallery/index',$data);
@@ -31,7 +31,7 @@ class GalleryController extends Controller{
 
     public function fullstory($id){
         $data['gallery'] = $this->galleries->where('id',$id)->first();
-        $data['menu']= 3;
+        $data['menu']= 4;
 
 
         return view('front/gallery/fullstory',$data);

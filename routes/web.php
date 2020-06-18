@@ -11,36 +11,58 @@
 |
 */
 
-Route::get('','Front\mainController@index')->name('index');
+    Route::get('', 'Front\mainController@index')->name('index');
 
-Route::get('/news','Front\newsController@index')->name('news.index');
-Route::get('/news/{id}','Front\newsController@fullstory')->name('news.fullstory');
-route::get('/shuttle','Front\newsController@shuttle')->name('news.shuttle');
 
-Route::get('/gallery','Front\GalleryController@index')->name('gallery.index');
-Route::get('/gallery/{id}','Front\GalleryController@fullstory')->name('gallery.fullstory');
+    Route::get('/news', 'Front\newsController@index')->name('news.index');
+    Route::get('/news/{id}', 'Front\newsController@fullstory')->name('news.fullstory');
+    route::get('/shuttle', 'Front\newsController@shuttle')->name('news.shuttle');
 
-Route::get('/donation','Front\DonationController@index')->name('donation.index');
-Route::post('/donation/pay', 'API\TbcController@process')->name('donation.process');
+    Route::get('user/cart','Front\mainController@showcart')->name('user.cart');
 
-Route::get('/about','Front\AboutController@index')->name('about.index');
 
-Route::get('/videos','Front\VideoController@index')->name('video.index');
+    Route::get('/gallery', 'Front\GalleryController@index')->name('gallery.index');
+    Route::get('/gallery/{id}', 'Front\GalleryController@fullstory')->name('gallery.fullstory');
 
-Route::get('/scholarships','Front\ScholarshipController@index')->name('scholarship.index');
+    Route::get('/donation', 'Front\DonationController@index')->name('donation.index');
+    Route::post('/donation/pay', 'API\TbcController@process')->name('donation.process');
+    Route::get('/donation/fullstory', 'Front\DonationController@fullstory')->name('donation.fullstory');
 
-Route::get('/contributors','Front\ContributorsController@index')->name('contributors.index');
+    Route::get('/about', 'Front\AboutController@index')->name('about.index');
 
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Auth\LoginController@login');
-Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+    Route::get('/videos', 'Front\VideoController@index')->name('video.index');
 
-Route::get('register', function(){return view('admin/register');});
-//Route::get('register', function(){return view('Auth\RegisterController');});
+    Route::get('/scholarships', 'Front\ScholarshipController@index')->name('scholarship.index');
+
+    Route::get('/contributors', 'Front\ContributorsController@index')->name('contributors.index');
+
+
+
+route::group(['prefix'=>'user'],function() {
+    Route::get('login', 'UserloginController@showLoginForm');
+   // Route::get('login/test', 'UserloginController@testLogin');
+    Route::post('login', 'UserloginController@login')->name('user.login');
+    Route::post('logout', 'UserloginController@logout')->name('logout');
+    Route::get('register', 'UserregisterController@showregisterForm');
+    Route::post('register', 'UserregisterController@create')->name('user.register');
+    Route::get('home','Front\mainController@index')->name('user.home');;
+
+
+});
+
+route::group(['prefix'=>'admin'],function() {
+    Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+    Route::post('login', 'Auth\LoginController@login');
+    Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+    Route::get('dashboard','Admin\DashboardController@index')->name('dashboard');
+
+});
+
+
+
 
 Route::group(['middleware'=>'auth','prefix'=>'admin'],function(){
 
-    Route::get('dashboard','Admin\DashboardController@index')->name('dashboard');
 
     Route::group(['prefix'=>'videos','namespace'=>'Admin'],function(){
         Route::get('','VideoController@index')->name('admin.videos.index');
@@ -124,7 +146,3 @@ Route::group(['middleware'=>'auth','prefix'=>'admin'],function(){
     });
 
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

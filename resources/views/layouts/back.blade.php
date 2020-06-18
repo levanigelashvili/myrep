@@ -13,8 +13,8 @@
 
 
 
-      
-        
+
+
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subse0 t=all" rel="stylesheet" type="text/css" />
         <link href="{{ asset('admin/assets/global/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('admin/assets/global/plugins/simple-line-icons/simple-line-icons.min.css') }}" rel="stylesheet" type="text/css" />
@@ -34,26 +34,26 @@
     </head>
 
     <body class="page-header-fixed page-content-white">
-    
+
         <script src="{{asset("/vendor/unisharp/laravel-ckeditor/ckeditor.js")}}"></script>
 
-       
+
         <div class="page-wrapper">
             <!-- ჰედერის დასაწყისი -->
             <div class="page-header navbar navbar-fixed-top">
 
                 <div class="page-header-inner ">
                     <!-- ლოგო -->
-                    
-                    
+
+
                     <div class="page-logo">
                         <a href="{{ route('dashboard') }}" style="color:white"><h4>Scholarshipfund</h4></a>
                         <div class="menu-toggler sidebar-toggler">
                             <span></span>
                         </div>
                     </div>
-                   
-                   
+
+
                     <div class="top-menu">
                         <ul class="nav navbar-nav pull-right">
                             <li class="dropdown dropdown-user">
@@ -65,11 +65,11 @@
                                 <ul class="dropdown-menu dropdown-menu-default">
                                     <li class="divider"> </li>
                                     <li>
-                                        <a href="{{ route('logout') }}" 
+                                        <a href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
-                                            <i class="icon-key"></i> 
-                                            გასვლა             
+                                            <i class="icon-key"></i>
+                                            გასვლა
                                         </a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
@@ -77,7 +77,7 @@
                                     </li>
                                 </ul>
                             </li>
-                           
+
                         </ul>
                     </div>
                 </div>
@@ -96,13 +96,13 @@
                 <div class="page-sidebar-wrapper">
                     <div class="page-sidebar navbar-collapse collapse">
                         <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
-                            
-                           
-                            
+
+
+
                             <li class="heading">
                                 <h3 class="uppercase">გვერდები</h3>
                             </li>
-                            
+
                             <li class="nav-item  ">
                                 <a href="{{ route('dashboard') }}" class="nav-link ">
                                     <i class="icon-home"></i>
@@ -157,7 +157,7 @@
                                             <i class="fa fa-plus"></i>
                                             <span class="title">დამატება</span>
                                         </a>
-                                    </li>                                  
+                                    </li>
                                 </ul>
                             </li>
 
@@ -179,7 +179,7 @@
                                             <i class="fa fa-plus"></i>
                                             <span class="title">დამატება</span>
                                         </a>
-                                    </li>                                  
+                                    </li>
                                 </ul>
                             </li>
 
@@ -201,7 +201,7 @@
                                                 <i class="fa fa-plus"></i>
                                                 <span class="title">დამატება</span>
                                             </a>
-                                        </li>                                  
+                                        </li>
                                     </ul>
                                 </li>
 
@@ -212,7 +212,7 @@
                                     </a>
                                 </li>
 
-                               
+
                                 <li class="nav-item  ">
                                     <a href="javascript:;" class="nav-link nav-toggle">
                                         <i class="fa fa-image"></i>
@@ -231,7 +231,7 @@
                                                 <i class="fa fa-plus"></i>
                                                 <span class="title">დამატება</span>
                                             </a>
-                                        </li>                                  
+                                        </li>
                                     </ul>
                                 </li>
 
@@ -254,7 +254,7 @@
                                                 <i class="fa fa-plus"></i>
                                                 <span class="title">დამატება</span>
                                             </a>
-                                        </li>                                  
+                                        </li>
                                     </ul>
                                 </li>
 
@@ -276,7 +276,7 @@
                                             <i class="fa fa-plus"></i>
                                             <span class="title">დამატება</span>
                                         </a>
-                                    </li>                                  
+                                    </li>
                                 </ul>
                             </li>
 
@@ -287,7 +287,7 @@
                                 </a>
                             </li>
 
-                            
+
                         </ul>
                     </div>
                 </div>
@@ -301,7 +301,7 @@
                 <!-- ვებგვერდის ტანი -->
                 <div class="page-content-wrapper">
                     <div class="page-content" style="min-height: 556px;">
-                        
+
                         <div class="page-bar">
                             <ul class="page-breadcrumb">
                                 <li>
@@ -312,40 +312,40 @@
                                     <span>@yield('title')</span>
                                 </li>
                             </ul>
-              
+
                         </div>
-                        
-                        
+
+
                         @yield('main')
 
-                        
+
                         </div>
 
 
 
                     <div class="clearfix"></div>
-                </div>                
+                </div>
             </div>
-            
+
             <!-- ვებგვერდის ტანი -->
 
 
 
 
             <!-- ვებგვერდის ბოლო დასაწყისი -->
-            
+
             <div class="page-footer">
                 <div class="page-footer-inner"> 2019 © Geolab</div>
             </div>
-            
+
             <!-- ვებგვერდის ბოლოს დასასრული -->
 
         </div>
-      
-    </div>
-    
 
-         
+    </div>
+
+
+
     <script src="{{ asset('admin/assets/global/plugins/jquery.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('admin/assets/global/plugins/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
     <script src="{{ asset('admin/assets/global/plugins/js.cookie.min.js')}}" type="text/javascript"></script>
@@ -354,7 +354,7 @@
     <script src="{{ asset('admin/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js')}}" type="text/javascript"></script>
     <!-- END CORE PLUGINS -->
     <!-- BEGIN THEME GLOBAL SCRIPTS -->
- 
+
     <script src="{{ asset('admin/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}" type="text/javascript"></script>
 
     <script src="{{ asset('admin/assets/global/scripts/app.min.js')}}" type="text/javascript"></script>
@@ -369,7 +369,7 @@
     <script src="{{ asset('admin/js/admin/Modal.js')}}"></script>
     @yield('script')
 
-    
+
 
 
 

@@ -18,6 +18,7 @@ use App\Video;
 
 use App\Text;
 
+
 class DashboardController extends Controller
 {
     protected $contributor;
@@ -35,7 +36,11 @@ class DashboardController extends Controller
         $this->scholarship = $scholarship;
         $this->video = $video;
         $this->text = $text;
+        $this->middleware('auth')->except('logout');
     }
+
+
+
 
     public function index()
     {
